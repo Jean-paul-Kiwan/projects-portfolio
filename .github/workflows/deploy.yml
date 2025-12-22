@@ -1,0 +1,40 @@
+name: Deploy to EC2
+
+on:
+  push:
+    branches: [ "main" ]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repo
+      uses: actions/checkout@v3
+
+    - name: Compress project
+      run: zip -r taskboard.zip . -x ".git/*" ".github/*" "node_modules/*"
+
+    - name: Upload to EC2
+      uses: appleboy/scp-action@v0.1.7
+      with:
+        host: ${{ secrets.EC2_HOST }}
+        username: ec2-user
+        key: ${{ secrets.EC2_SSH_KEY }}
+        source: "taskboard.zip"
+        target: "/home/ec2-user/"
+
+    - name: SSH Deploy
+      uses: appleboy/ssh-action@v1.1.0
+      with:
+        host: ${{ secrets.EC2_HOST }}
+        username: ec2-user
+        key: ${{ secrets.EC2_SSH_KEY }}
+        script: |
+          cd /home/ec2-user
+          rm -rf taskboard-app
+          unzip -o taskboard.zip -d taskboard-app
+          cd taskboard-app
+          npm install
+          pm2 restart taskboard || pm2 start server.js --name taskboard
+          pm2 save
