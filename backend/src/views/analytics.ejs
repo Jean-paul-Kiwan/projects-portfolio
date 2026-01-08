@@ -1,0 +1,84 @@
+<h1>Analytics</h1>
+
+<div class="grid">
+  <div class="card">
+    <h3>Total NGOs</h3>
+    <div id="aNgoCount" class="big">—</div>
+  </div>
+
+  <div class="card">
+    <h3>Total Donations (count)</h3>
+    <div id="aDonationCount" class="big">—</div>
+  </div>
+
+  <div class="card">
+    <h3>Total Donations (amount)</h3>
+    <div id="aDonationTotal" class="big">—</div>
+  </div>
+</div>
+
+<div class="card">
+  <h2>Donations by NGO</h2>
+  <table class="table" id="byNgoTable">
+    <thead>
+      <tr>
+        <th>NGO</th>
+        <th>Total Amount</th>
+        <th>Donations Count</th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+</div>
+
+<script>
+  async function loadAnalytics() {
+    // 1) NGOs count
+    const ngosRes = await fetch("/ngos");
+    const ngos = await ngosRes.json();
+    document.getElementById("aNgoCount").textContent = Array.isArray(ngos) ? ngos.length : "—";
+
+    // 2) Donations (count + total amount)
+    const donationsRes = await fetch("/donations");
+    const donations = await donationsRes.json();
+
+    if (Array.isArray(donations)) {
+      document.getElementById("aDonationCount").textContent = donations.length;
+
+      const total = donations.reduce((sum, d) => sum + (Number(d.amount) || 0), 0);
+      document.getElementById("aDonationTotal").textContent = total.toLocaleString();
+    }
+
+    // 3) Aggregation by NGO
+    const byNgoRes = await fetch("/donations/analytics/by-ngo");
+    const byNgo = await byNgoRes.json();
+
+    const tbody = document.querySelector("#byNgoTable tbody");
+    tbody.innerHTML = "";
+
+    if (Array.isArray(byNgo) && byNgo.length) {
+      byNgo.forEach(row => {
+        const tr = document.createElement("tr");
+
+        const name = row.ngoName || row._id || "Unknown";
+        const totalAmount = Number(row.totalDonations ?? row.totalAmount ?? 0);
+        const count = Number(row.count ?? row.totalCount ?? 0);
+
+        tr.innerHTML = `
+          <td>${name}</td>
+          <td>${totalAmount.toLocaleString()}</td>
+          <td>${count}</td>
+        `;
+        tbody.appendChild(tr);
+      });
+    } else {
+      const tr = document.createElement("tr");
+      tr.innerHTML = `<td colspan="3">No data</td>`;
+      tbody.appendChild(tr);
+    }
+  }
+
+  loadAnalytics().catch(err => {
+    console.error("Analytics load error:", err);
+  });
+</script>

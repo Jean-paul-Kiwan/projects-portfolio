@@ -57,6 +57,14 @@ app.get("/ui/donations", (req, res) => {
   });
 });
 
+app.get("/ui/analytics", (req, res) => {
+  res.render("layout", {
+    title: "Analytics",
+    body: require("fs").readFileSync(path.join(__dirname, "views", "analytics.ejs"), "utf8")
+  });
+});
+
+
 
 const PORT = process.env.PORT || 3000;
 
