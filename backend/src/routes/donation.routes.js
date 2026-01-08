@@ -264,6 +264,49 @@ router.get("/:id", async (req, res) => {
   }
 });
 
+router.get("/export/csv", async (req, res) => {
+  try {
+    const Donation = require("../models/donation.model"); // adjust if your model path/name differs
+
+    // Optional: allow filters later; for now export all
+    const donations = await Donation.find().sort({ donationDate: -1 }).lean();
+
+    // CSV headers
+    const headers = [
+      "donationDate",
+      "donorName",
+      "donorEmail",
+      "amount",
+      "currency",
+      "method",
+      "status",
+      "isRecurring",
+      "ngoId"
+    ];
+
+    const escapeCsv = (v) => {
+      if (v === null || v === undefined) return "";
+      const s = String(v).replace(/"/g, '""');
+      return `"${s}"`;
+    };
+
+    const lines = [
+      headers.join(","), // header row
+      ...donations.map(d => headers.map(h => escapeCsv(d[h])).join(","))
+    ];
+
+    const csv = lines.join("\n");
+
+    res.setHeader("Content-Type", "text/csv; charset=utf-8");
+    res.setHeader("Content-Disposition", "attachment; filename=donations.csv");
+    return res.status(200).send(csv);
+  } catch (err) {
+    console.error("CSV export error:", err);
+    return res.status(500).json({ error: "CSV export failed" });
+  }
+});
+
+
 /**
  * ✅ UPDATE Donation
  * PUT /donations/:id
