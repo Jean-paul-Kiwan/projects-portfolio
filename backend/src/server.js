@@ -30,6 +30,9 @@ app.get("/api", (req, res) => {
 app.use("/ngos", ngoRoutes);
 app.use("/donations", donationRoutes);
 
+app.get("/health", (req, res) => res.json({ ok: true, time: new Date() }));
+
+
 // ✅ Frontend pages (server-rendered)
 app.get("/", (req, res) => res.redirect("/dashboard"));
 
