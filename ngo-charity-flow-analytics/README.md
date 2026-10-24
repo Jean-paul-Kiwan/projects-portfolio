@@ -1,5 +1,7 @@
 # NGO Charity Flow Analytics
 
+**Context:** Individual academic project at the Lebanese University.
+
 A web application for maintaining NGO and donation records, exposing API endpoints, and presenting dashboard and analytics views.
 
 **Status:** source code and an API contract are available. This page was checked against selected source files on 2026-10-22; runtime behavior and results have not yet been independently validated.
@@ -71,6 +73,6 @@ Do not use real donor or beneficiary information in screenshots, example dataset
 
 ## Attribution
 
-Course context and additional contributors should be recorded when the original materials are reconciled. Retain existing code and asset notices. This documentation does not assign a new repository-wide license.
+Developed individually as a Lebanese University academic project; retain existing third-party code and asset notices. Retain existing code and asset notices. This documentation does not assign a new repository-wide license.
 
 [Back to portfolio](../README.md)
