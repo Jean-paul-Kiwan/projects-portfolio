@@ -8,8 +8,8 @@ This repository is the entry point to my implementation projects and technical w
 
 | Project | What it explores | Main technologies | Explore |
 | --- | --- | --- | --- |
-| **Taskboard** | A collaborative task-management application with accounts, workspaces, task assignments, and notifications | JavaScript, Node.js, Express, EJS, MongoDB/Mongoose, AWS Lambda integration | [Project and setup notes](taskboard-app/README.md) · [Source](taskboard-app/) |
-| **NGO Charity Flow Analytics** | NGO and donation records, API endpoints, and analytics-oriented views | JavaScript, Node.js, Express, MongoDB/Mongoose, EJS | [Project and setup notes](ngo-charity-flow-analytics/README.md) · [Source](ngo-charity-flow-analytics/) |
+| **Taskboard** | Individual Lebanese University project: collaborative task management with accounts, workspaces, task assignments, and notifications | JavaScript, Node.js, Express, EJS, MongoDB/Mongoose, AWS Lambda integration | [Project and setup notes](taskboard-app/README.md) · [Source](taskboard-app/) |
+| **NGO Charity Flow Analytics** | Individual Lebanese University project: NGO/donation records, API endpoints, and analytics-oriented views | JavaScript, Node.js, Express, MongoDB/Mongoose, EJS | [Project and setup notes](ngo-charity-flow-analytics/README.md) · [Source](ngo-charity-flow-analytics/) |
 
 These are development projects. The documentation identifies known limitations; a production deployment or passing test suite is not implied.
 
