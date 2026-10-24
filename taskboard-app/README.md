@@ -1,5 +1,7 @@
 # Taskboard
 
+**Context:** Individual academic project at the Lebanese University.
+
 A JavaScript web application for organizing tasks in shared workspaces. The implementation combines account access, workspace membership, task ownership and assignment, priorities, invitations, and notifications.
 
 **Status:** application source is available. This documentation was checked against selected source files on 2026-10-22; the application was not executed or production-certified during that review.
@@ -69,6 +71,6 @@ Record a reproducible runtime; introduce safe local email delivery; add authenti
 
 ## Attribution
 
-This page documents the implementation found in this repository. Course context and any additional contributors should be recorded when the original project materials are reconciled. Preserve existing notices; no new license is assigned by this documentation.
+This page documents the implementation found in this repository. Developed individually as a Lebanese University academic project; third-party assets and notices still require their normal attribution. Preserve existing notices; no new license is assigned by this documentation.
 
 [Back to portfolio](../README.md)
