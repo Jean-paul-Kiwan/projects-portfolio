@@ -4,12 +4,31 @@ Software engineer working on engineering applications, parametric modeling, grap
 
 This repository is the entry point to my implementation projects and technical work. Project pages distinguish available source code from written overviews and identify setup and validation work still needed.
 
-## Applications with source code
+## Published source archives
+
+These repositories contain reviewed source snapshots, with private configuration, datasets and generated artifacts excluded. **Source publication does not mean the applications were tested, deployed or shown to work.** Each README records the limits of the snapshot.
+
+| Project | Source | Current status |
+| --- | --- | --- |
+| Java media library | [cnam-media-library](https://github.com/Jean-paul-Kiwan/cnam-media-library) | Owner-reported CNAM coursework; synthetic student fixture; run not verified |
+| Driver drowsiness detection | [driver-drowsiness-detection](https://github.com/Jean-paul-Kiwan/driver-drowsiness-detection) | Educational vision/ML source; data and weights omitted; feature mismatch and evaluation limitations documented; efficacy not verified |
+| F1 Race Management | [f1-race-management](https://github.com/Jean-paul-Kiwan/f1-race-management) | Original backend/web/mobile source; environment and destructive seed excluded; complete run not verified |
+| NGO Charity Flow Analytics | [ngo-charity-flow-analytics](https://github.com/Jean-paul-Kiwan/ngo-charity-flow-analytics) | API/EJS snapshot plus separately recovered Flutter client; combined run and exact academic program not verified |
+| Taskboard | [taskboard-app](https://github.com/Jean-paul-Kiwan/taskboard-app) | Clean source snapshot without the legacy database/config/history; run not verified; outbound email paths remain |
+| AR frame viewer | [ar-frame-viewer](https://github.com/Jean-paul-Kiwan/ar-frame-viewer) | Personal HTML/JavaScript experiment; model absent; device behavior not verified |
+
+**Legacy Taskboard safety issue remains unresolved.** The existing Taskboard folder and repository history contain an account database and historically disclosed credential-bearing configuration. Whether the accounts are real or credentials remain valid has not been verified. The new source snapshot does not remove those older copies or resolve exposure. Do not reuse their configuration or account data; a separate owner-approved response is required. No credential values or records are repeated here.
+
+CARD-GENERATOR source remains withheld because the recovered compiled app's source/privacy/asset boundary is unresolved. Its relationship to the internship JPK Card overview below is not established. AML-AI and the compiler package remain private or unavailable pending location and publication-rights confirmation.
+
+## Legacy application paths (preserved)
+
+The following original paths remain to avoid breaking existing links. They are legacy snapshots, not the preferred clean source archives. Their existing READMEs do not override the safety and validation limits above.
 
 | Project | What it explores | Main technologies | Explore |
 | --- | --- | --- | --- |
-| **Taskboard** | Individual Lebanese University project: collaborative task management with accounts, workspaces, task assignments, and notifications | JavaScript, Node.js, Express, EJS, MongoDB/Mongoose, AWS Lambda integration | [Project and setup notes](taskboard-app/README.md) · [Source](taskboard-app/) |
-| **NGO Charity Flow Analytics** | Individual Lebanese University project: NGO/donation records, API endpoints, and analytics-oriented views | JavaScript, Node.js, Express, MongoDB/Mongoose, EJS | [Project and setup notes](ngo-charity-flow-analytics/README.md) · [Source](ngo-charity-flow-analytics/) |
+| **Taskboard — legacy** | Individual Lebanese University project: collaborative task management with accounts, workspaces, task assignments, and notifications | JavaScript, Node.js, Express, EJS, MongoDB/Mongoose, AWS Lambda integration | [Project and setup notes](taskboard-app/README.md) · [Source](taskboard-app/) |
+| **NGO Charity Flow Analytics — legacy** | Individual Lebanese University project: NGO/donation records, API endpoints, and analytics-oriented views | JavaScript, Node.js, Express, MongoDB/Mongoose, EJS | [Project and setup notes](ngo-charity-flow-analytics/README.md) · [Source](ngo-charity-flow-analytics/) |
 
 These are development projects. The documentation identifies known limitations; a production deployment or passing test suite is not implied.
 
@@ -42,7 +61,7 @@ projects-portfolio/
 └── CONTRIBUTING.md                 # Documentation and contribution guidelines
 ```
 
-Substantial projects can move into dedicated repositories after their setup, history, dependencies, and sharing rights have been reviewed. Until then, their existing paths are preserved.
+Dedicated source snapshots are linked above. Existing source folders, case-study links and original repository history are preserved; no deployment or runtime certification is implied.
 
 ## Attribution and use
 
